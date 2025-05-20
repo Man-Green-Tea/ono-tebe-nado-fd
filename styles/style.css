@@ -47,12 +47,17 @@
 
 .cover {
   position: relative;
+  display: flex;
+  flex-direction: column;
   padding: 165px 50px 50px 50px;
   background-image: url(/images/cover.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
+
+/* В cover добавил свойство "display: flex" чтобы у дочерних элементов не прописывать
+"position: relative" для работы z-index. Сейчас это свойство закомментировано */
 
 .overlay {
   position: absolute;
@@ -62,7 +67,7 @@
 }
 
 .cover__title {
-  position: relative;
+  /* position: relative; */
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -93,7 +98,7 @@
 }
 
 .cover__description {
-  position: relative;
+  /* position: relative; */
   z-index: 1;
   display: flex;
   justify-content: space-between;
@@ -127,7 +132,7 @@
 }
 
 .lots__heading {
-  margin: 0 0 30px 27px;
+  margin: 0 0 27px 38px;
   color: #000;
   font-weight: 700;
   font-size: 40px;
@@ -136,7 +141,10 @@
 
 .lots__card-list {
   display: flex;
-  gap: 25px;
+  flex-wrap: wrap;
+  /* gap: 25px; */
+  justify-content: space-between;
+  list-style: none;
 }
 
 .card {
@@ -145,11 +153,12 @@
   flex-direction: column;
   justify-content: space-between;
   width: 334px;
-  height: 596px;
+  min-height: 596px;
   padding: 48px 40px;
 }
 
 .card__title {
+  z-index: 1;
   color: #fff;
   font-weight: 700;
   font-size: 22px;
@@ -157,14 +166,13 @@
   text-decoration: underline;
   text-decoration-skip-ink: none;
   text-transform: uppercase;
-  z-index: 1;
 }
 
 .card__text {
+  z-index: 1;
+  color: #fff;
   font-size: 20px;
   line-height: 1.2;
-  color: #fff;
-  z-index: 1;
 }
 
 .card_type_film {
@@ -191,7 +199,97 @@
 .lots__look-more-link {
   display: block;
   margin: 30px 0 0 40px;
+  color: #000;
   font-weight: 400;
   font-size: 20px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 334px 1fr;
+  justify-content: center;
+  column-gap: 24px;
+  margin-top: 120px;
+  padding: 35px 24px 0 24px;
+}
+
+.about__logo {
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 240px;
+  border-radius: 100%;
+  background-color: #000;
+}
+
+.about__logo a {
+  display: block;
+  width: 148px;
+}
+
+.about__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__title {
+  display: block;
+  margin-top: 100px;
+  margin-bottom: 100px;
   color: #000;
+  font-weight: 700;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 690px;
+  color: #000;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  column-gap: 135px;
+  height: 180px;
+  margin-top: 180px;
+  padding: 0 50px 82px;
+}
+
+.footer__address {
+  max-width: 264px;
+}
+
+.footer__menu-list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  list-style: none;
+}
+
+.footer__menu-link {
+  color: #000;
+  font-size: 18px;
+}
+
+.footer__link_active {
+  text-decoration: none;
+}
+
+.footer__social-list {
+  display: flex;
+  gap: 48px;
+  list-style: none;
+}
+
+.footer__social-list-item {
+  width: 48px;
 }
